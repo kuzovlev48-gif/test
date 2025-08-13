@@ -2,6 +2,7 @@ import math
 import random
 from typing import List, Tuple, Optional
 from dataclasses import dataclass
+from settings import *
 
 @dataclass
 class Color:
@@ -53,9 +54,9 @@ class GameLogic:
         self.delete_zone = (screen_width - 100, 0, 100, 100)  # x, y, width, height
         
         # Физические параметры
-        self.friction = 0.98
-        self.gravity = 0.2
-        self.bounce_factor = 0.8
+        self.friction = FRICTION
+        self.gravity = GRAVITY
+        self.bounce_factor = BOUNCE_FACTOR
         
     def add_ball(self, x: float, y: float, color: Optional[Color] = None) -> Ball:
         """Добавляет новый шарик в игру"""
@@ -68,9 +69,9 @@ class GameLogic:
         ball = Ball(
             x=x,
             y=y,
-            vx=random.uniform(-3, 3),
-            vy=random.uniform(-3, 3),
-            radius=15,
+            vx=random.uniform(-2, 2),
+            vy=random.uniform(-2, 2),
+            radius=BALL_RADIUS,
             color=color,
             id=self.ball_counter
         )

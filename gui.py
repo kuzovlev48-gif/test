@@ -1,27 +1,28 @@
 import pygame
 import sys
 from logic import GameLogic, Colors, Color
+from settings import *
 
 class BallGame:
-    def __init__(self, width=800, height=600):
+    def __init__(self, width=WINDOW_WIDTH, height=WINDOW_HEIGHT):
         pygame.init()
         self.width = width
         self.height = height
         self.screen = pygame.display.set_mode((width, height))
-        pygame.display.set_caption("Игра про шарики - Смешивание цветов")
+        pygame.display.set_caption("Шарики: игра")
         
         # Инициализация игровой логики
         self.game_logic = GameLogic(width, height)
         
         # Настройки игры
         self.clock = pygame.time.Clock()
-        self.FPS = 60
+        self.FPS = FPS
         
         # Стартовое количество шариков
-        self.start_ball_count = 8
+        self.start_ball_count = START_BALL_COUNT
         
         # Настройки всасывания
-        self.suck_radius = 60
+        self.suck_radius = SUCK_RADIUS
         self.suck_active = False
         
         # Цвета интерфейса

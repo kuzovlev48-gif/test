@@ -1,19 +1,19 @@
 # Настройки игры про шарики
 
 # Размеры окна
-WINDOW_WIDTH = 800
-WINDOW_HEIGHT = 600
+WINDOW_WIDTH = 600
+WINDOW_HEIGHT = 400
 
 # Игровые параметры
-START_BALL_COUNT = 8
+START_BALL_COUNT = 6
 FPS = 60
 
 # Физические параметры
-BALL_RADIUS = 15
-SUCK_RADIUS = 60
-GRAVITY = 0.2
-FRICTION = 0.98
-BOUNCE_FACTOR = 0.8
+BALL_RADIUS = 12
+SUCK_RADIUS = 50
+GRAVITY = 0.1
+FRICTION = 0.99
+BOUNCE_FACTOR = 0.9
 
 # Цвета интерфейса
 WHITE = (255, 255, 255)
