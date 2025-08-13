@@ -169,7 +169,9 @@ class BallGame:
         instructions = [
             "ЛКМ - всасывать шарики",
             "ПКМ - выплёвывать шарики", 
-            "Перетащи в красную зону - удалить"
+            "Перетащи в красную зону - удалить",
+            "Пробел - добавить шарик",
+            "R - сбросить игру"
         ]
         
         y_offset = self.height - 100
@@ -196,6 +198,15 @@ class BallGame:
                     spat_ball = self.game_logic.spit_ball(mouse_pos[0], mouse_pos[1])
                     if spat_ball:
                         print(f"Выплюнут шарик цвета {spat_ball.color.to_tuple()}")
+            
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:  # Пробел - добавить шарик
+                    self.game_logic.add_random_ball()
+                    print("Добавлен новый шарик")
+                elif event.key == pygame.K_r:  # R - сбросить игру
+                    self.game_logic.clear_all()
+                    self.initialize_balls()
+                    print("Игра сброшена")
             
             elif event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:  # ЛКМ отпущена

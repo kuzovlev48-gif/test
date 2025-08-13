@@ -188,6 +188,22 @@ class GameLogic:
         
         # Обрабатываем столкновения
         self.handle_ball_collisions()
+        
+        # Добавляем новые шарики, если их мало
+        if len(self.balls) < 3:
+            self.add_random_ball()
+    
+    def add_random_ball(self):
+        """Добавляет случайный шарик в случайном месте"""
+        x = random.uniform(50, self.screen_width - 50)
+        y = random.uniform(50, self.screen_height - 50)
+        
+        # Выбираем случайный цвет
+        predefined_colors = [Colors.RED, Colors.GREEN, Colors.BLUE, Colors.YELLOW, 
+                           Colors.MAGENTA, Colors.CYAN, Colors.ORANGE, Colors.PURPLE]
+        color = random.choice(predefined_colors)
+        
+        self.add_ball(x, y, color)
     
     def get_balls(self) -> List[Ball]:
         """Возвращает список всех шариков в игре"""
